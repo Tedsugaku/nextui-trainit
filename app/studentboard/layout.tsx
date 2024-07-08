@@ -13,7 +13,7 @@ export default function StudentLayout({
             <LateralBar/>
 
         </div>
-        <div className="grow p-6 md:overflow-y-auto md:p-12">
+        <div className="grow p-6 md:overflow-y-auto md:p-12 bg-slate-200">
           {children}
         </div>
       </section>

@@ -17,7 +17,7 @@ export default function Page(){
                     </div>
                         <Input type="email" label="Email" />
                         <Input type="password" label="Contraseña" />
-                    <Button color="primary" href="/studentboard" as={Link}  className="font-semibold">inciar</Button>
+                    <Button color="primary" href="/studentboard/tests" as={Link}  className="font-semibold">inciar</Button>
                 </div>
                 </form>
             </div>

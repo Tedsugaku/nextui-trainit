@@ -1,77 +1,102 @@
 import { Image } from "@nextui-org/react";
 import {motion, useInView, useScroll} from "framer-motion"
-import React, { useRef } from "react";
+import React, { MutableRefObject, useRef } from "react";
 import ponpon from "@/public/img/pompom.webp"
 import ponpon2 from "@/public/img/pompom2.webp"
 import ponpon3 from "@/public/img/pompom3.png"
+import { title } from "process";
 
 export default function SectionHome(){
-    const ref = useRef(null);
-    const { scrollY } = useScroll({target: ref, offset: ["end end", "start start"]});
-    const isInView = useInView(ref); 
 
+  
+
+
+
+    const infoSection =[
+        {title: "Explora el universo del éxito", body: "Explora el conocimiento estelar que te guiará hacia el éxito académico, animándote a reforzar tus habilidades analíticas en lectura critica de forma divertida y dinámica junto a tu compañero guía ¡branny! ", position: "l",img: "/img/pompom.webp" },
+        {title: "¿Como te ayudaremos?", body: "Fomentaremos tu aprendizaje autónomo e independiente con herramientas y recursos como simulacros, videos y temas que encontraras en el área de lectura critica dentro de las pruebas saber  11.", position: "r", img:"/img/pompom2.webp"},
+        {title: "¿Que hace que esta página sea eficaz?", body:"Educarse con train it! es desarrollar la capacidad de analizar, interpretar y evaluar textos de manera objetiva y reflexiva permitiendo que los estudiantes puedan mejorar sus habilidades para comprender textos complejos identificar información relevante y sacar conclusiones fundamentales. Esto no solo les ayuda a enfrentar con éxito la prueba saber 11 sino que también es crucial para su formación académica y profesional.", position: "l", img:"/img/pompom3.png"},
+        {title: "Funcionalidades", body:"Nuestras características y desafíos convierten el aprendizaje en una experiencia divertida y similar a un juego. Donde aprenderás con material didáctico, simulacros y retroalimentación inmediata, y, por supuesto fácil de acceder en cualquier dispositivo.", position:"r", img:"/img/pompom3.png"},
+        {title: "Avalado por la ciencia", body:"Por medio de la fusión de técnicas educativas avaladas por la investigación científica, logramos estrategias efectivas que incluye la práctica regular de ejercicios, el estudio espaciado, técnicas de respuestas y simulacros de las pruebas ICFES.", position:"l", img:"/img/pompom3.png"},
+        {title: "Nuestro objetivo", body:"Nuestro objetivo es reforzar tus habilidades de lectura crítica, proporcionandote un sin fin de herramientas intuitivas y accesibles. Aquí encontrarás módulos de lectura crítica diseñados específicamente para ayudarte a identificar y superar tus dificultades, junto con retroalimentación inmediata para que puedas mejorar continuamente. ¡Prepárate para alcanzar el éxito en tus pruebas y desarrollar habilidades esenciales para tu futuro académico y personal!", position:"r", img:"/img/pompom3.png"},
+
+    ];  
+    const refs = infoSection.map(() => useRef<HTMLDivElement>(null));
   
  
     return(<>
         <article>
+            
         <div className="flex flex-wrap gap-56 w-full ">
-            <div className="grid grid-cols-1 md:grid-cols-2 content-center mb-4">
-                <div className="flex justify-center items-center  p-3">
-                    <div className=' '>
-                    <motion.div 
-                    ref={ref}
-                    initial={{opacity:0, y:20}}
-                    animate={ {opacity:1,y:0}}
-                    transition={{duration:1.2}}
-                    >
-                    <div className='tracking-tight inline font-bold text-[2.5rem] lg:text-5xl '>Explora el universo del éxito</div>
-                    <div className='mt-8 font-semibold'>Explora el conocimiento estelar que te guiará hacia el éxito académico, animándote a reforzar tus habilidades analíticas en lectura critica de forma divertida y dinámica junto a tu compañero guía ¡branny! 
-                    </div>
-
-                    </motion.div>
-
-                    </div>
-                </div>
-                <motion.div
-                    ref={ref}
-                    initial={{opacity:0, x:200}}
-                    animate={ {opacity:1,x:0}}
-                    transition={{duration:1.2}}
-                >
-
-                    <div className='flex justify-center '><Image src={ponpon.src} width={500} isBlurred /></div>
-                </motion.div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 content-center mb-4">
-                <motion.div 
-                ref={ref}
-                initial={{opacity:0, x:-200}}
-                animate={ {opacity:1,x:0}}
-                transition={{duration:1.2}}>
-
-                    <div className='flex justify-center '><Image src={ponpon2.src} width={500} isBlurred /></div>
-                </motion.div>
-                <div className='flex justify-center items-center p-3'>
-
-                
-                <motion.div
-                ref={ref}
-                initial={{opacity:0, y:20}}
-                animate={ {opacity:1,y:0}}
-                transition={{duration:1.2}} 
-                >
-                    <div className="flex justify-center items-center  p-3 order-last sm:order-first">
-                        <div className='justify-items-center '>
-
-                        <div className='tracking-tight inline font-bold text-[2.5rem] lg:text-5xl '>¿Como te ayudaremos?
+            { infoSection.map((info, index)=>{
+               const isInView = useInView(refs[index]);
+                if(info.position ==="l"){
+                    return(
+                        <div className="grid grid-cols-1 md:grid-cols-2 content-center mb-4" key={info.title}>
+                        <div className="flex justify-center items-center  p-3">
+                            <div className=' '>
+                            <motion.div 
+                            ref={refs[index]}
+                            initial={{opacity:0, y:20}}
+                            animate={ isInView ? {opacity:1,y:0}: {opacity:0,y:20}}
+                            transition={{duration:1.2}}
+                            >
+                            <div className='tracking-tight inline font-bold text-[2.5rem] lg:text-5xl '>{info.title}</div>
+                            <div className='mt-8 font-semibold'>{info.body}
+                            </div>
+        
+                            </motion.div>
+        
+                            </div>
                         </div>
-                        <div className='mt-8 font-semibold'>Fomentaremos tu aprendizaje autónomo e independiente con herramientas y recursos como simulacros, videos y temas que encontraras en el área de lectura critica dentro de las pruebas saber  11.</div>
+                        <motion.div
+                            ref={refs[index]}
+                            initial={{opacity:0, x:200}}
+                            animate={isInView ? {opacity:1,x:0}:{opacity:0, x:200}}
+                            transition={{duration:1.2}}
+                        >
+        
+                            <div className='flex justify-center '><Image src={info.img} width={500} isBlurred /></div>
+                        </motion.div>
+                    </div>
+
+                    )
+                }else{
+                    return(
+                        <div className="grid grid-cols-1 md:grid-cols-2 content-center mb-4" key={info.title}>
+                        <motion.div 
+                        ref={refs[index]}
+                        initial={{opacity:0, x:-200}}
+                        animate={isInView ? {opacity:1,x:0}:{opacity:0, x:-200}}
+                        transition={{duration:1.2}}>
+        
+                            <div className='flex justify-center '><Image src={info.img} width={500} isBlurred /></div>
+                        </motion.div>
+                        <div className='flex justify-center items-center p-3'>
+        
+                        
+                        <motion.div
+                        ref={refs[index]}
+                        initial={{opacity:0, y:20}}
+                        animate={ isInView ? {opacity:1,y:0}:{opacity:0, y:20}}
+                        transition={{duration:1.2}} 
+                        >
+                            <div className="flex justify-center items-center  p-3 order-last sm:order-first">
+                                <div className='justify-items-center '>
+        
+                                <div className='tracking-tight inline font-bold text-[2.5rem] lg:text-5xl '> {info.title}
+                                </div>
+                                <div className='mt-8 font-semibold'>{info.body} </div>
+                                </div>
+                            </div>
+                        </motion.div>
                         </div>
                     </div>
-                </motion.div>
-                </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 content-center mb-4">
+                    )
+                }
+            })}
+
+            {/* <div className="grid grid-cols-1 md:grid-cols-2 content-center mb-4">
 
                 <div className="flex justify-center items-center  p-3">
                     <div className=' '>
@@ -116,7 +141,7 @@ export default function SectionHome(){
                     <div className='mt-8 font-semibold'>Nuestro objetivo es reforzar tus habilidades de lectura crítica, proporcionandote un sin fin de herramientas intuitivas y accesibles. Aquí encontrarás módulos de lectura crítica diseñados específicamente para ayudarte a identificar y superar tus dificultades, junto con retroalimentación inmediata para que puedas mejorar continuamente. ¡Prepárate para alcanzar el éxito en tus pruebas y desarrollar habilidades esenciales para tu futuro académico y personal!</div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     </article>
     </>)
