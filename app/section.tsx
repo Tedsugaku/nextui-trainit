@@ -22,9 +22,9 @@ export default function SectionHome(){
         
     ];  
     
+    
     const ref= useRef(null);
     const isInView = useInView(ref);
-    
     
     return(<>
         <article>
