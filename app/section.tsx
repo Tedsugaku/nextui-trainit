@@ -22,6 +22,8 @@ export default function SectionHome(){
         
     ];  
     
+    const ref= useRef(null);
+    const isInView = useInView(ref);
     
     
     return(<>
@@ -29,8 +31,6 @@ export default function SectionHome(){
             
         <div className="flex flex-wrap gap-56 w-full ">
             { infoSection.map((info, index)=>{
-                const ref= useRef(null);
-                const isInView = useInView(ref);
                 if(info.position ==="l"){
                     return(
                         <div className="grid grid-cols-1 md:grid-cols-2 content-center mb-4" key={info.title}>
