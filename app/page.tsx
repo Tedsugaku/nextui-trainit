@@ -57,7 +57,7 @@ export default function Home() {
         </div>
       </section>
       <div className="h-[calc(20vh_-_64px)] 2xl:h-[calc(35vh_-_64px)] grid  justify-center content-center">
-        <div className="font-bold">Scroll</div>
+        <div className="font-bold">Bajar</div>
         <motion.div
           animate={{
             scale: [null, 1.5, 1.4] 
