@@ -21,7 +21,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 content-center ">
           <div className=" flex justify-center">
             <motion.div animate={{rotate:-360}} transition={{repeat: Infinity, duration: 10, }}>
-              <Image isBlurred  src={img1.src} alt="" height="500px" width="500px" />
+              <Image isBlurred  src={img1.src} alt="hola" height="500px" width="500px"  />
 
             </motion.div>
           </div>
