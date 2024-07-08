@@ -22,21 +22,22 @@ export default function SectionHome(){
         
     ];  
     
-    const refs = infoSection.map(() => useRef<HTMLDivElement>(null));
- 
+    
+    
     return(<>
         <article>
             
         <div className="flex flex-wrap gap-56 w-full ">
             { infoSection.map((info, index)=>{
-               const isInView = useInView(refs[index]);
+                const ref= useRef(null);
+                const isInView = useInView(ref);
                 if(info.position ==="l"){
                     return(
                         <div className="grid grid-cols-1 md:grid-cols-2 content-center mb-4" key={info.title}>
                         <div className="flex justify-center items-center  p-3">
                             <div className=' '>
                             <motion.div 
-                            ref={refs[index]}
+                            ref={ref}
                             initial={{opacity:0, y:20}}
                             animate={ isInView ? {opacity:1,y:0}: {opacity:0,y:20}}
                             transition={{duration:1.2}}
@@ -50,7 +51,7 @@ export default function SectionHome(){
                             </div>
                         </div>
                         <motion.div
-                            ref={refs[index]}
+                            ref={ref}
                             initial={{opacity:0, x:200}}
                             animate={isInView ? {opacity:1,x:0}:{opacity:0, x:200}}
                             transition={{duration:1.2}}
@@ -65,7 +66,7 @@ export default function SectionHome(){
                     return(
                         <div className="grid grid-cols-1 md:grid-cols-2 content-center mb-4" key={info.title}>
                         <motion.div 
-                        ref={refs[index]}
+                        ref={ref}
                         initial={{opacity:0, x:-200}}
                         animate={isInView ? {opacity:1,x:0}:{opacity:0, x:-200}}
                         transition={{duration:1.2}}>
@@ -76,7 +77,7 @@ export default function SectionHome(){
         
                         
                         <motion.div
-                        ref={refs[index]}
+                        ref={ref}
                         initial={{opacity:0, y:20}}
                         animate={ isInView ? {opacity:1,y:0}:{opacity:0, y:20}}
                         transition={{duration:1.2}} 
