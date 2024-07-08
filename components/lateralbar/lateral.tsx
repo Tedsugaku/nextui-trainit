@@ -10,7 +10,7 @@ export default function LateralBar ()  {
         className="mb-2 flex h-20 items-center justify-center rounded-md p-4 md:h-40 "
         href="/"
       >
-            <div className=""><img src='/Train it!.png' /> </div>
+            <div className=""><img alt="" src='/Train it!.png' /> </div>
         <div className="w-32 text-white md:w-40">
        
         </div>

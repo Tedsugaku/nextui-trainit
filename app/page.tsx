@@ -64,7 +64,7 @@ export default function Home() {
           }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <img src={down.src} className="ml-2"></img>
+          <img src={down.src} alt="" className="ml-2"></img>
         </motion.div>
       </div>
           <SectionHome/>

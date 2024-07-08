@@ -19,10 +19,10 @@ export default function SectionHome(){
         {title: "Funcionalidades", body:"Nuestras características y desafíos convierten el aprendizaje en una experiencia divertida y similar a un juego. Donde aprenderás con material didáctico, simulacros y retroalimentación inmediata, y, por supuesto fácil de acceder en cualquier dispositivo.", position:"r", img:"/img/pompom3.png"},
         {title: "Avalado por la ciencia", body:"Por medio de la fusión de técnicas educativas avaladas por la investigación científica, logramos estrategias efectivas que incluye la práctica regular de ejercicios, el estudio espaciado, técnicas de respuestas y simulacros de las pruebas ICFES.", position:"l", img:"/img/pompom3.png"},
         {title: "Nuestro objetivo", body:"Nuestro objetivo es reforzar tus habilidades de lectura crítica, proporcionandote un sin fin de herramientas intuitivas y accesibles. Aquí encontrarás módulos de lectura crítica diseñados específicamente para ayudarte a identificar y superar tus dificultades, junto con retroalimentación inmediata para que puedas mejorar continuamente. ¡Prepárate para alcanzar el éxito en tus pruebas y desarrollar habilidades esenciales para tu futuro académico y personal!", position:"r", img:"/img/pompom3.png"},
-
+        
     ];  
+    
     const refs = infoSection.map(() => useRef<HTMLDivElement>(null));
-  
  
     return(<>
         <article>
