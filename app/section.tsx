@@ -22,24 +22,27 @@ export default function SectionHome(){
         
     ];  
     
-    const ref= useRef([]);
-   
-    
+
     
     return(<>
         <article>
             
         <div className="flex flex-wrap gap-56 w-full ">
-            { infoSection.map((info, index)=>{
+            { infoSection.map((info, index)=>{    
+
+                
+                const ref= useRef(null);
+                const isInView = useInView(ref);
+            
                 if(info.position ==="l"){
                     return(
                         <div className="grid grid-cols-1 md:grid-cols-2 content-center mb-4" key={info.title}>
                         <div className="flex justify-center items-center  p-3">
                             <div className=' '>
                             <motion.div 
-                            ref={ref.current[index]}
+                            ref={ref}
                             initial={{opacity:0, y:20}}
-                            animate={ {opacity:1,y:0}}
+                            animate={ isInView ? {opacity:1,y:0}: {opacity:0,y:20}}
                             transition={{duration:1.2}}
                             >
                             <div className='tracking-tight inline font-bold text-[2.5rem] lg:text-5xl '>{info.title}</div>
@@ -51,9 +54,9 @@ export default function SectionHome(){
                             </div>
                         </div>
                         <motion.div
-                            ref={ref.current[index]}
+                            ref={ref}
                             initial={{opacity:0, x:200}}
-                            animate={ {opacity:1,x:0}}
+                            animate={isInView ? {opacity:1,x:0}:{opacity:0, x:200}}
                             transition={{duration:1.2}}
                         >
         
@@ -66,9 +69,9 @@ export default function SectionHome(){
                     return(
                         <div className="grid grid-cols-1 md:grid-cols-2 content-center mb-4" key={info.title}>
                         <motion.div 
-                        ref={ref.current[index]}
+                        ref={ref}
                         initial={{opacity:0, x:-200}}
-                        animate={{opacity:1,x:0}}
+                        animate={isInView ? {opacity:1,x:0}:{opacity:0, x:-200}}
                         transition={{duration:1.2}}>
         
                             <div className='flex justify-center '><Image src={info.img} width={500} isBlurred /></div>
@@ -77,9 +80,9 @@ export default function SectionHome(){
         
                         
                         <motion.div
-                        ref={ref.current[index]}
+                        ref={ref}
                         initial={{opacity:0, y:20}}
-                        animate={ {opacity:1,y:0}}
+                        animate={ isInView ? {opacity:1,y:0}:{opacity:0, y:20}}
                         transition={{duration:1.2}} 
                         >
                             <div className="flex justify-center items-center  p-3 order-last sm:order-first">
