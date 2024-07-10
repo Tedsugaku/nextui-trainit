@@ -21,7 +21,9 @@ export default function SectionHome(){
         {title: "Nuestro objetivo", body:"Nuestro objetivo es reforzar tus habilidades de lectura crítica, proporcionandote un sin fin de herramientas intuitivas y accesibles. Aquí encontrarás módulos de lectura crítica diseñados específicamente para ayudarte a identificar y superar tus dificultades, junto con retroalimentación inmediata para que puedas mejorar continuamente. ¡Prepárate para alcanzar el éxito en tus pruebas y desarrollar habilidades esenciales para tu futuro académico y personal!", position:"r", img:"/img/pompom3.png"},
         
     ];  
-    
+    const refs = infoSection.map(() => useRef(null));
+    const isInViews = refs.map((ref) => useInView(ref));
+  
 
     
     return(<>
@@ -31,8 +33,8 @@ export default function SectionHome(){
             { infoSection.map((info, index)=>{    
 
                 
-                const ref= useRef(null);
-                const isInView = useInView(ref);
+                const ref = refs[index];
+                const isInView = isInViews[index];
             
                 if(info.position ==="l"){
                     return(
