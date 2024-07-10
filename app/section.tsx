@@ -25,7 +25,7 @@ export default function SectionHome(){
     const refs =useRef([]);
     
 
-    const isInViews = (ref: RefObject<Element>) =>  useInView(ref);
+    const IsInViews = (ref: RefObject<Element>) =>  useInView(ref);
 
     
     return(<>
@@ -36,7 +36,7 @@ export default function SectionHome(){
 
                 
                 const ref = refs.current[index] ?? createRef() ;
-                const isInView = isInViews(ref) ;
+                const isInView = IsInViews(ref) ;
             
                 if(info.position ==="l"){
                     return(
