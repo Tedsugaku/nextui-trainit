@@ -1,6 +1,6 @@
 import { Image } from "@nextui-org/react";
 import {motion, useInView, useScroll} from "framer-motion"
-import React, { MutableRefObject, useRef } from "react";
+import React, { MutableRefObject, useEffect, useRef } from "react";
 import ponpon from "@/public/img/pompom.webp"
 import ponpon2 from "@/public/img/pompom2.webp"
 import ponpon3 from "@/public/img/pompom3.png"
@@ -21,20 +21,24 @@ export default function SectionHome(){
         {title: "Nuestro objetivo", body:"Nuestro objetivo es reforzar tus habilidades de lectura crítica, proporcionandote un sin fin de herramientas intuitivas y accesibles. Aquí encontrarás módulos de lectura crítica diseñados específicamente para ayudarte a identificar y superar tus dificultades, junto con retroalimentación inmediata para que puedas mejorar continuamente. ¡Prepárate para alcanzar el éxito en tus pruebas y desarrollar habilidades esenciales para tu futuro académico y personal!", position:"r", img:"/img/pompom3.png"},
         
     ];  
-    const refs = infoSection.map(() => useRef(null));
-    const isInViews = refs.map((ref) => useInView(ref));
+    useEffect(()=>{
+        refs
+        isInViews
+        
+    },[])
   
-
-    
+        
+            const refs = infoSection.map(() => useRef(null));
+            const isInViews = refs.map((ref) => useInView(ref));
+                
     return(<>
         <article>
             
         <div className="flex flex-wrap gap-56 w-full ">
             { infoSection.map((info, index)=>{    
-
-                
                 const ref = refs[index];
                 const isInView = isInViews[index];
+    
             
                 if(info.position ==="l"){
                     return(
