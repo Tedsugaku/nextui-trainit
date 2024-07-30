@@ -31,10 +31,13 @@ export default function Home() {
           <div className="grid content-center " >
             <div className="text-center  leading-8 sm:leading-10  mb-5 ">
               <div className="inline-block">
-                <h1 className="tracking-tight inline font-semibold text-[2.5rem] lg:text-5xl">Bienvenido a</h1>
-                <h1 className="tracking-tight inline font-semibold from-purple-500 to-blue-500 text-[2.5rem] lg:text-5xl bg-clip-text text-transparent bg-gradient-to-b"> Train It!</h1>
+                <h1 className="tracking-tight inline font-semibold text-[2.5rem] lg:text-5xl">Bienvenido a </h1>
+              {/*<h1 className="tracking-tight inline font-bold text-[2.5rem] lg:text-5xl ">Train It!</h1>*/}
+              <h1 className="trackiing-tight inline font-bold text-[2.5rem] lg:text-5xl" style={{color:"#6F4A81" }} >Train It!</h1>
+              {/*<h1 className="tracking-tight inline font-bold from-purple-500 to-blue-500 text-[2.5rem] lg:text-5xl bg-clip-text text-transparent bg-gradient-to-b"> Train It!</h1>*/}
               </div>
-              <h1 className="tracking-tight inline font-semibold text-[2.5rem] lg:text-5xl"> ¡Prepárate con nosotros para triunfar en las Pruebas ICFES!</h1>
+              <div></div>
+              <h1 className="tracking-tight inline font-semibold text-[2.5rem] lg:text-5xl"> ¡Prepárate para alcanzar el éxito en tus pruebas y desarrollar habilidades esenciales para tu futuro académico!</h1>
             </div>
               <div className="grid place-content-center">
                 <a href="/auth/login" className="">
@@ -61,7 +64,7 @@ export default function Home() {
       </section>
 
       <div className="h-[calc(20vh_-_64px)] 2xl:h-[calc(35vh_-_64px)] grid  justify-center content-center">
-        <div className="font-bold text-white">Bajar</div>
+        <div className="font-bold text-black">Bajar</div>
         <motion.div
           animate={{
             scale: [null, 1.5, 1.4] 
