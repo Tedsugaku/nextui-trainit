@@ -37,7 +37,7 @@ export default function Page(){
                         <Input name="email" id="email" type="email" label="Email" />
                         <Input name="password" id="password" type="password" label="Contraseña" />
                     {/* <Button color="primary" href="/studentboard/tests" as={Link}  className="font-semibold">inciar</Button> */}
-                    <Button color="primary" href="/studentboard/tests" as={Link} type="submit"  className="font-semibold">inciar</Button>
+                    <Button color="primary" href="/studentboard/tests" as={Link} type="submit"  className="font-semibold">Iniciar</Button>
                 </div>
                 </form>
             </div>
